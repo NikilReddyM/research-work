@@ -150,7 +150,7 @@ public class CreateHash
         }
 
         long endTime   = System.nanoTime();
-        long totalTime = endTime - startTime;
-        System.out.println("Elapsed time in milliseconds: " + totalTime / 1000000);
+        double totalTime = endTime - startTime;
+        System.out.println("Elapsed time in seconds: " + totalTime / 1000000000);
     }
 }

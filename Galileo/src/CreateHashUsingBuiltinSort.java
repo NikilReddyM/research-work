@@ -3,7 +3,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class CreateHashUsingBuiltinSort
 {
@@ -115,8 +117,20 @@ public class CreateHashUsingBuiltinSort
         {
             System.out.println(hashes[i]);
         }
+
+        List<String> tempTxList = new ArrayList<String>();
+
+        for(int i=0;i<hashes.length;i++)
+        {
+            tempTxList.add(hashes[i]);
+        }
+
+        MerkleTrees merkleTrees = new MerkleTrees(tempTxList);
+        merkleTrees.merkle_tree();
+        System.out.println("root : " + merkleTrees.getRoot());
+
         long endTime   = System.nanoTime();
         long totalTime = endTime - startTime;
-        System.out.println("Elapsed time in milliseconds: " + totalTime / 1000000);
+        System.out.println("Elapsed time in seconds: " + totalTime / 1000000000);
     }
 }
